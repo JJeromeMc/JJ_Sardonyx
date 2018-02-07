@@ -9,8 +9,9 @@ function setup(){
 }
 function draw(){
     var isShifted = false;
-    
-    var y=0;
+    fill(color(150,0,150));
+    stroke(color(0,255,0));
+    var y= 0;
     while (y<=height){
         
         var x=0;
@@ -22,7 +23,7 @@ function draw(){
             x= x+circleDiam;
         }
         
-        y= y +circleRad;
+        y= y + circleRad;
         isShifted = !isShifted;
     }
 }
