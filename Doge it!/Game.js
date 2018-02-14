@@ -7,16 +7,18 @@ var gameisover;
 function preload(){
     playerimage = loadImage("https://surrogate.hackedu.us/i.imgur.com/N5uCbDu.png");
     enemyimage = loadImage("https://surrogate.hackedu.us/i.imgur.com/OdL0XPt.png");
+    backgroundImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/aKQOg3G.png");
     
 }
 
 function setup(){
     gameisover= false;
-    createCanvas(250,250);
+    createCanvas(256,256);
     player = createSprite(width/2, height-(playerimage.height/2), 0, 0);
     player.addImage(playerimage);
     enemy = createSprite(width/2, 0, 0, 0);
     enemy.addImage(enemyimage);
+    enemy.rotationSpeed = 5;
 }
 
 function draw(){
@@ -26,7 +28,7 @@ function draw(){
     if(enemy.overlap(player)){
         gameisover = true;
     }
-    background(0,0,125);
+    background(backgroundImage);
     drawSprites()
     
     if(keyDown(RIGHT_ARROW) && player.position.x < width-25){
@@ -44,7 +46,7 @@ function draw(){
 }
 
 function gameOver(){
-    background(0);
+    background(25,0,0);
     textAlign(CENTER);
     fill("red");
     text("Get Dunked On!", width/2, height/2);
